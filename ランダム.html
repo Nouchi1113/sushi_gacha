@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>サンプル</title>
+    <script src="はま寿司メニュー.js"></script>
+    <link rel="stylesheet" type="text/css" href="ランダム.css">
+</head>
+
+<script type="text/javascript">
+    function OnButtonClick() {
+        var ran = Math.floor(Math.random() * array.length);
+        document.getElementById("omikuji").innerHTML = array[ran];
+    }
+</script>
+
+<body>
+    <p class="sample">
+    <div class="value">
+        <span id="omikuji">表示場所</span>
+        <div class="button_wrapper">
+            <input type="button" value="次食べるものはこれ！！！！！！！！" onclick="OnButtonClick();" style="width:200px; height:100px; " />
+        </div>
+    </div>
+    </p>
+
+</body>
+
+</html>

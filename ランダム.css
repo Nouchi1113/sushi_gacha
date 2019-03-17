@@ -1,0 +1,21 @@
+body{
+    color: #000000;
+    background: #CCFFFF;
+    font-family: "メイリオ", sans-serif;
+    }
+
+.value{
+     text-align: center;
+     font-size: 50px;
+}
+.button_wrapper
+{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        margin: 30px auto;
+     
+        bottom: 0;
+}
