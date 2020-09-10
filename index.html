@@ -8,21 +8,64 @@
 </head>
 
 <script type="text/javascript">
-    function OnButtonClick() {
-        var ran = Math.floor(Math.random() * array.length);
-        document.getElementById("omikuji").innerHTML = array[ran];
+    var a;
+    var ran = [30];
+    var count;
+    function Sleep(milli_second) {
+        var start = new Date();
+        while (new Date() - start < milli_second);
     }
+
+    function moji() {
+        var span = document.getElementById("omikuji");
+        count++;
+        a = Math.floor(Math.random() * (30 - count));
+        document.getElementById("omikuji").innerHTML = array[ran[a]];
+        console.log(count, ran[a]);
+        if (count >= 29) {
+            span.style.fontSize = '70px';
+        } else {
+            span.style.fontSize = '30px';
+        }
+        if (count < 29) {
+            setTimeout("moji()", Math.pow(1.28, count));
+        }
+    }
+    function OnButtonClick() {
+        count = -1;
+        for (var i = 0; i < 30; i++) {
+            ran[i] = Math.floor(Math.random() * array.length);
+        }
+        moji();
+
+        /* 
+        for (var i = 0; i < 30; i++) {
+        a = Math.floor(Math.random() * (30 - i));
+        console.log(a, array[ran[a]]);
+        Sleep(20);
+        moji();
+        }
+        */
+
+
+    }
+
 </script>
 
 <body>
-    <p class="sample">
+
     <div class="value">
-        <span id="omikuji">表示場所</span>
-        <div class="button_wrapper">
-            <input type="button" value="次食べるものはこれ！！！！！！！！" onclick="OnButtonClick();" style="width:200px; height:100px; " />
-        </div>
+        <h6>はま寿司ガチャ</h6>
+        <br>
+        <span id="omikuji">次食べるものはこれ！！！！！！！！</span><br><br>
+        <input type="button" class="button_wrapper" value="寿司ボタン" onclick="OnButtonClick();"
+            style="width:200px; height:100px; " />
     </div>
-    </p>
+    <div class="area">
+        <ul class="circles">
+
+        </ul>
+    </div>
 
 </body>
 
