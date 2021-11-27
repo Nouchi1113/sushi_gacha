@@ -11,9 +11,22 @@
     var a;
     var ran = [30];
     var count;
+    var array = hamazushi;
+
+
+
     function Sleep(milli_second) {
         var start = new Date();
         while (new Date() - start < milli_second);
+    }
+
+    function check() {
+        console.log(document.storeChoose.btn.value);
+        if (document.storeChoose.btn.value === 'はま寿司') {
+            array = hamazushi;
+        } else {
+            array = sushiro;
+        }
     }
 
     function moji() {
@@ -31,6 +44,7 @@
             setTimeout("moji()", Math.pow(1.28, count));
         }
     }
+
     function OnButtonClick() {
         count = -1;
         for (var i = 0; i < 30; i++) {
@@ -55,8 +69,14 @@
 <body>
 
     <div class="value">
-        <h6>はま寿司ガチャ</h6>
+        <h6>回転寿司ガチャ</h6>
         <br>
+        <form name="storeChoose" action="index.html">
+            <input type="radio" name="btn" value="はま寿司" checked>はま寿司
+            <input type="radio" name="btn" value="スシロー">スシロー
+            <input type="button" value="決定" onClick="check()">
+        </form>
+
         <span id="omikuji">次食べるものはこれ！！！！！！！！</span><br><br>
         <input type="button" class="button_wrapper" value="寿司ボタン" onclick="OnButtonClick();"
             style="width:200px; height:100px; " />
